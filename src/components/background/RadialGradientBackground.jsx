@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RadialGradientBackground = () => {
+export const RadialGradientBackground = () => {
   return (
     <div>
       
@@ -8,4 +8,3 @@ const RadialGradientBackground = () => {
   )
 }
 
-export default RadialGradientBackground
