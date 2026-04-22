@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { ChevronDown, Star } from "lucide-react"
 import { SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiMongodb } from "react-icons/si"
 import { PERSONAL_INFO, STATS } from "../../utils/constants"
@@ -16,7 +15,7 @@ export const Hero = () => {
           {/** Left Column - Content */}
           <div className="text-left ">
             <FadeIn delay={0}>
-              <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] mb-8 ng-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
+              <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
                 <Star className="w-4 h-4 text-white fill-white"/>
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
                   {PERSONAL_INFO.title} | Based in {PERSONAL_INFO.location}
@@ -73,7 +72,7 @@ export const Hero = () => {
                 {/**Image Container */}
                 <div className="relative rounded-2xl overflow-hidden m-[1px] h-[calc(100%-2px)]">
                   <img 
-                    src="/public/developerPortrait.jpg" 
+                    src="/developerPortrait.jpg" 
                     alt="Developer at work" 
                     className="w-full h-full object-cover"
                   />
@@ -105,6 +104,14 @@ export const Hero = () => {
           </FadeIn>
         </div>
       </div>
+
+      {/**Scroll Indicator */}
+      <button
+        onClick={() => ScrollToSection('about')}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
+      >
+        <ChevronDown className="w-8 h-8 text-primary" />
+      </button>
     </section>
   )
 }

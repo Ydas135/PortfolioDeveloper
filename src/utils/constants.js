@@ -1,13 +1,15 @@
 export const PERSONAL_INFO = {
-    name: "John Doe",
+    name: "Yeison",
     title: "Full Stack Developer",
     email: "john.doe@example.com",
     location: "New York, USA",
     tagline: "Passionate about building scalable web applications and exploring new technologies.",
     resume: "/resume.pdf",
-    bio: {
-        "I am a full stack developer with over 5 years of experience in building web applications. I have a strong background in JavaScript, React, Node.js, and MongoDB. I am passionate about learning new technologies and improving my skills. In my free time, I enjoy contributing to open source projects and writing technical blogs.": "I am a full stack developer with over 5 years of experience in building web applications. I have a strong background in JavaScript, React, Node.js, and MongoDB. I am passionate about learning new technologies and improving my skills. In my free time, I enjoy contributing to open source projects and writing technical blogs."
-    }
+    bio: [
+        "I am a full stack developer with over 5 years of experience in building web applications. I have a strong background in JavaScript, React, Node.js, and MongoDB.",
+        "I am passionate about learning new technologies and improving my skills.",
+        "In my free time, I enjoy contributing to open source projects and writing technical blogs."
+]
 };
 
 export const SOCIAL_LINKS = {

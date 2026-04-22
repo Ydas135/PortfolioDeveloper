@@ -37,7 +37,7 @@ export const useScrollSpy = (sectionIds, offset = 100) => {
         if (section) {
             const sectionTop = section.offsetTop - offset;
             window.scrollTo({
-                top,
+                top: sectionTop,
                 behavior: 'smooth'
             });
         }
