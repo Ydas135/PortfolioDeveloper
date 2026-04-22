@@ -41,7 +41,7 @@ export const Projects = () => {
     }
 
     const prevSlide = () => {
-        const newIndex = Math.max(currentIndex - 1,0)
+        const newIndex = Math.max(currentIndex - 1, 0);
         scrollToIndex(newIndex)
     }
 
@@ -65,7 +65,7 @@ export const Projects = () => {
             <FadeIn delay={0}>
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-                        <Briefcase className='w-4 text-primary' />
+                        <Briefcase className='w-4 h-4 text-primary' />
                         <span className="text-sm text-primary font-medium">My Work</span>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">
@@ -87,7 +87,7 @@ export const Projects = () => {
                             key={category}
                         >
                             <div className={`absolute inset-0 rounded-full transition-all duration-300 ${activateCategory === category ? 'bg-primary/10 opacity-100' : 'bg-white/5 border border-white/10 group-hover:bg-white/10'}`} />
-                            <div className="relative  flex items-center gap-2">
+                            <div className="relative flex items-center gap-2">
                                 {React.createElement(categoryIcons[category], {className: "w-4 h-4"})}
                                 <span className="text-sm">{category}</span>
                             </div>
@@ -108,9 +108,9 @@ export const Projects = () => {
                     >
                         <div className="flex gap-6 pb-4">
                             {filteredProjects.map((project, index) =>(
-                                <div 
-                                    className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start"
+                                <div
                                     key={project.id}
+                                    className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start"
                                 >  
                                     <ProjectCard project={project} />
                                 </div>
@@ -122,10 +122,10 @@ export const Projects = () => {
                     {filteredProjects.length > 3 && (
                         <>
                             <button 
-                                className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
+                                className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
                                 onClick={prevSlide}
                                 disabled={currentIndex === 0}
-                                aria-label='Previos Projects'
+                                aria-label='Previous Projects'
                             >
                                 <ChevronLeft className='w-6 h-6 text-white' />
                             </button>
@@ -133,7 +133,7 @@ export const Projects = () => {
                             <button 
                                 className="flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
                                 onClick={nextSlide}
-                                disabled={currentIndex >= filteredProjects.length - 3 }
+                                disabled={currentIndex >= filteredProjects.length - 3}
                                 aria-label='Next Projects'
                             >
                                 <ChevronRight className='w-6 h-6 text-white' />
@@ -144,7 +144,7 @@ export const Projects = () => {
                     {/** Navigation Dots */}
                     {filteredProjects.length > 3 && (
                         <div className="flex items-center justify-center gap-2 mt-8">
-                            {Array.from({ length: Math.max(1, filteredProjects.length - 3 + 1 )}).map((_, index) => (
+                            {Array.from({ length: Math.max(0, filteredProjects.length - 2 ) }).map((_, index) => (
                                 <button 
                                     className={`transition-all duration-300 rounded-full ${index === currentIndex ? 'bg-primary w-6 h-2' : 'bg-white/30 w-2 h-2 hover:bg-white/50'}`}
                                     key={index}
