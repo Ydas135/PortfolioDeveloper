@@ -40,7 +40,7 @@ export const Projects = () => {
         setCurrentIndex(index);
         if (scrollContainerRef.current) {
             const container = scrollContainerRef.current;
-            const gap = 24; // gap-6 = 24px
+            const gap = 24; // 
             const cardWidth = (container.offsetWidth - (gap * (visibleCards - 1))) / visibleCards;
             container.scrollTo({
                 left: cardWidth * (index * visibleCards),
@@ -61,7 +61,6 @@ export const Projects = () => {
         scrollToIndex(newIndex)
     }
 
-    // Category icons mapping 
     const categoryIcons = {
         "All": Target,
         "Web Apps": Globe,

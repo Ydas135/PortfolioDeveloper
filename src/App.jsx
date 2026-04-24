@@ -6,10 +6,11 @@ import { Projects } from "./components/sections/Projects"
 import { Services } from "./components/sections/Services"
 import { Testimonials } from "./components/sections/Testimonials"
 import { Contact } from "./components/sections/Contact"
+import { Footer } from "./components/layouts/Footer"
 
 export const App = () => {
   return (
-    <div className="min-h-screen bg-black pb-[100vh]">
+    <div className="min-h-screen bg-black">
       <Navbar/>
       <main>
         <Hero/>
@@ -20,6 +21,7 @@ export const App = () => {
         <Testimonials />
         <Contact />
       </main>
+      <Footer />
     </div>
   )
 }
