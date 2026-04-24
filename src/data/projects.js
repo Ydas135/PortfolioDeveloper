@@ -1,7 +1,7 @@
 export const projects = [
     {
         id:1,
-        title:"E-commerce Website",
+        title:"E-commerce Website1",
         description: "Full-stack e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
         image: "https://via.placeholder.com/300x200",
         category:"Full Stack",
@@ -12,7 +12,7 @@ export const projects = [
     },
     {
         id:2,
-        title:"E-commerce Website",
+        title:"E-commerce Website2",
         description: "Full-stack e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
         image: "https://via.placeholder.com/300x180",
         category:"Full Stack",
@@ -23,7 +23,7 @@ export const projects = [
     },
     {
         id:3,
-        title:"E-commerce Website",
+        title:"E-commerce Website3",
         description: "Full-stack e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
         image: "https://via.placeholder.com/300x220",
         category:"Full Stack",
@@ -34,7 +34,7 @@ export const projects = [
     },
     {
         id:4,
-        title:"E-commerce Website",
+        title:"E-commerce Website4",
         description: "Full-stack e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
         image: "https://via.placeholder.com/300x230",
         category:"Full Stack",
@@ -45,7 +45,7 @@ export const projects = [
     },
     {
         id:5,
-        title:"E-commerce Website",
+        title:"E-commerce Website5",
         description: "Full-stack e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
         image: "https://via.placeholder.com/300x190",
         category:"Full Stack",
@@ -56,7 +56,7 @@ export const projects = [
     },
     {
         id:6,
-        title:"E-commerce Website",
+        title:"E-commerce Website6",
         description: "Full-stack e-commerce website built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
         image: "https://via.placeholder.com/300x205",
         category:"Full Stack",

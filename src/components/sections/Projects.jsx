@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { projects, categories } from "../../data/projects"
 import { Briefcase, Sparkles, Target, Globe, Palette, Zap, ChevronLeft, ChevronRight } from 'lucide-react'
 import { ProjectCard } from "../ui/ProjectCard" 
@@ -8,7 +8,21 @@ export const Projects = () => {
 
     const [activateCategory, setActivateCategory] = useState("All");
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [visibleCards, setVisibleCards] = useState(3);
     const scrollContainerRef = useRef(null);
+
+    const getVisibleCards = () => {
+        if (window.innerWidth < 768) return 1;
+        if (window.innerWidth < 1024) return 2;
+        return 3;
+    };
+
+    useEffect(() => {
+        const updateVisibleCards = () => setVisibleCards(getVisibleCards());
+        updateVisibleCards();
+        window.addEventListener('resize', updateVisibleCards);
+        return () => window.removeEventListener('resize', updateVisibleCards);
+    }, []);
 
     const filteredProjects = activateCategory === "All"
         ? projects
@@ -26,16 +40,18 @@ export const Projects = () => {
         setCurrentIndex(index);
         if (scrollContainerRef.current) {
             const container = scrollContainerRef.current;
-            const cardWidth = container.offsetWidth / 3;
+            const gap = 24; // gap-6 = 24px
+            const cardWidth = (container.offsetWidth - (gap * (visibleCards - 1))) / visibleCards;
             container.scrollTo({
-                left: cardWidth * index,
+                left: cardWidth * (index * visibleCards),
                 behavior: "smooth"
             })
         }
     }
 
     const nextSlide = () => {
-        const maxIndex = Math.max(0, filteredProjects.length - 3);
+        const numberOfSlides = Math.ceil(filteredProjects.length / visibleCards);
+        const maxIndex = numberOfSlides - 1;
         const newIndex = Math.min(currentIndex + 1, maxIndex);
         scrollToIndex(newIndex)
     }
@@ -119,7 +135,7 @@ export const Projects = () => {
                     </div>
 
                     {/** Navigation Arrows */}
-                    {filteredProjects.length > 3 && (
+                    {filteredProjects.length > visibleCards && (
                         <>
                             <button 
                                 className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
@@ -133,7 +149,7 @@ export const Projects = () => {
                             <button 
                                 className="flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10"
                                 onClick={nextSlide}
-                                disabled={currentIndex >= filteredProjects.length - 3}
+                                disabled={currentIndex >= Math.ceil(filteredProjects.length / visibleCards) - 1}
                                 aria-label='Next Projects'
                             >
                                 <ChevronRight className='w-6 h-6 text-white' />
@@ -142,11 +158,11 @@ export const Projects = () => {
                     )}
 
                     {/** Navigation Dots */}
-                    {filteredProjects.length > 3 && (
+                    {filteredProjects.length > visibleCards && (
                         <div className="flex items-center justify-center gap-2 mt-8">
-                            {Array.from({ length: Math.max(0, filteredProjects.length - 2 ) }).map((_, index) => (
+                            {Array.from({ length: Math.ceil(filteredProjects.length / visibleCards) }).map((_, index) => (
                                 <button 
-                                    className={`transition-all duration-300 rounded-full ${index === currentIndex ? 'bg-primary w-6 h-2' : 'bg-white/30 w-2 h-2 hover:bg-white/50'}`}
+                                    className={`transition-all duration-300 rounded-full w-2 h-2 ${index === currentIndex ? 'bg-white' : 'bg-white/30 hover:bg-white/50'}`}
                                     key={index}
                                     onClick={() => scrollToIndex(index)}
                                     aria-label={`Go to slide ${index + 1}`}
